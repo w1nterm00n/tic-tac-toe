@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="script.js" defer></script>
+    <title>Tic Tac Toe</title>
+</head>
+<body>
+    <div class="enter_names_fields_wrapper">
+            <form id="enter_names_fields" action="idk">
+                <label>
+                    <p>X player</p>
+                    <input type="text" id="playerX_name" name="playerX_name" placeholder="Enter your name:" required><br>
+                </label>
+
+                <label>
+                    <p>0 player</p>
+                    <input type="text" id="player0_name" name="player0_name" placeholder="Enter your name:" required><br>
+                </label>
+
+            <button type="submit" id="start_btn">START</button>
+        </form>
+    </div>
+
+
+
+    <div class="gamefield_wrapper">
+        <p class="turn"> Hello! </p>
+        <div class="gamefield"> 
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>    
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+        </div>       <!-- пока пустой -->
+    </div>
+
+    <!-- <button class="restart_btn">RESTART</button> -->
+
+    <div class="congrats_table">
+        <p class="congrats">Congrats! You win!</p>
+    </div>
+</body>
+</html>

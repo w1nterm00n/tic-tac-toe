@@ -1,0 +1,93 @@
+@import url(_normalize.scss);
+
+.enter_names_fields_wrapper{
+    padding-top: 0px;
+    width: fit-content;
+    margin: 0 auto;
+    #enter_names_fields{
+        display: flex;
+        gap: 100px;
+        label{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            p{
+                font-size: 32px;
+                font-style: normal;
+                font-weight: 600; 
+                margin-bottom: 35px;
+            }
+            input{
+                height: 40px; 
+                border: 1px solid #000; 
+                color: #000;
+                font-size: 24px;
+                font-weight: 500; 
+            }
+        }
+        #start_btn{
+            height: min-content;
+            align-self: flex-end;
+        }
+    }
+}
+
+
+button{
+    border-radius: 20px;
+    border: 1px solid #000;
+    background: #DECAAB; 
+    padding: 13px 40px;
+    font-size: 24px;
+    font-weight: 600; 
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+}
+
+.gamefield_wrapper{
+    margin-bottom: 30px;
+    p.turn{
+        font-size: 32px;
+        font-weight: 600; 
+        text-align: center;
+    }
+    .gamefield{
+        display: grid;
+        width: 360px;
+        height: 360px;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
+
+.restart_btn{
+    margin-bottom: 30px; //убери
+}
+
+.congrats_table{
+    display: none;
+    border: 1px solid #000;
+    background: #ABDECA; 
+    width: fit-content;
+    padding: 0px 40px;
+    margin: 0 auto;
+    p.congrats{
+        font-size: 32px;
+        font-weight: 600; 
+    }
+}
+
+
+
+.cell{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 50px;
+    font-weight: bolder;
+    border: 1px solid black; 
+    margin-right: 1px; 
+    margin-bottom: 1px; 
+}
