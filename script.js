@@ -1,6 +1,6 @@
 let whoseTurn;   
 let startButton = document.getElementById('start_btn');
-
+let congratsTable = document.querySelector('.congrats_table');
 let restartButton = document.querySelector('.restart_btn');
 
 startButton.addEventListener('click', function(event){
@@ -13,38 +13,34 @@ restartButton.addEventListener('click', function(){
 });
 
 let game = {
-        winnerTag: "nobody",  //тут хранится кто победит - Х или 0
+        winnerTag: "nobody",  //here the winner stored (X or 0)
         
         start: function () {
-            players.getPersonName();
-            let cells = gameboard.createArray();
-            whoseTurn = "X";
-
-            gameboard.showWhoseTurn(whoseTurn);
-            cells.forEach(function(cell) {
-                cell.addEventListener('click', () => {
-                    gameboard.tagging (whoseTurn, cell); 
+                players.getPersonName();
+                let cells = gameboard.createArray();
+                whoseTurn = "X";
+    
+                gameboard.showWhoseTurn(whoseTurn);
+                cells.forEach(function(cell) {
+                    cell.addEventListener('click', () => {
+                        gameboard.tagging (whoseTurn, cell); 
+                    })
                 })
-            })
         },
 
         restart: function() {
-            game.stop();
             let cells = document.querySelectorAll('.cell');
             cells.forEach((cell) => {
-                // cell.textContent = "";
-                cell.value = "";
+                cell.textContent = "";
+                cell.value = undefined;
             });
-            winnerTag = "nobody";
-            game.start();
-            //каждый раз после растарта очередь 0
+            congratsTable.style.cssText = "display: none; "
         },
 
         process: function () {
             let isWin = this.isWining();
 
             if (isWin) {
-                game.stop();
                 gameboard.showWinner();
             } else {
                 if (whoseTurn === "X") {
@@ -98,11 +94,7 @@ let game = {
 
             return (win);
         },
-        
-        stop: function(){
-            gameboard.gameboardArray = [];  //очищает массив
-
-        }
+    
 };
 
 
@@ -139,7 +131,7 @@ let gameboard = {
             let cells = document.querySelectorAll('.cell');
             let cellArray = Array.from(cells);
             for (let i = 0; i < 3; i++) {
-                this.gameboardArray.push(cellArray.slice(i * 3, (i + 1) * 3));
+                gameboard.gameboardArray.push(cellArray.slice(i * 3, (i + 1) * 3));
             }
             return cells;   //cells это нодлист
         },
@@ -177,7 +169,6 @@ let gameboard = {
             } else {
                 winnerName = players.playerX.name;
             }
-            let congratsTable = document.querySelector('.congrats_table');
             congratsTable.style.cssText = 'display: block;';
             let congrats = document.querySelector('.congrats');
             congrats.textContent = "Congrats! " + winnerName + " win!"
