@@ -13,19 +13,21 @@ restartButton.addEventListener('click', function(){
 });
 
 let game = {
-        winnerTag: "nobody",  //here the winner stored (X or 0)
-        
+        winnerTag: "nobody",  //здесь хранится победитель (X или 0)
         start: function () {
+            if (whoseTurn == undefined) {       //это означает "если "start" кликнут первый раз", потому что иначе whoseTurn будет "X" или "0"
                 players.getPersonName();
                 let cells = gameboard.createArray();
                 whoseTurn = "X";
-    
                 gameboard.showWhoseTurn(whoseTurn);
                 cells.forEach(function(cell) {
                     cell.addEventListener('click', () => {
                         gameboard.tagging (whoseTurn, cell); 
                     })
                 })
+            } else {
+                game.restart(); 
+            }
         },
 
         restart: function() {
@@ -39,7 +41,6 @@ let game = {
 
         process: function () {
             let isWin = this.isWining();
-
             if (isWin) {
                 gameboard.showWinner();
             } else {
@@ -66,7 +67,7 @@ let game = {
                     }
                 }
             }
-            //проверка для строк
+            //проверка для столбцов
             for (let j=0; j<3; j++){
                 let x = gameboard.gameboardArray[0][j].value;
                 for (let i=0; i<3; i++){
@@ -91,10 +92,8 @@ let game = {
                     win = true;
                     game.winnerTag = gameboard.gameboardArray[1][1].value;
                 };
-
             return (win);
         },
-    
 };
 
 
