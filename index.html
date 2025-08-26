@@ -11,24 +11,25 @@
 <body>
     <div class="enter_names_fields_wrapper">
             <form id="enter_names_fields" action="idk">
-                <label>
-                    <p>X player</p>
-                    <input type="text" id="playerX_name" name="playerX_name" placeholder="Enter your name:" required><br>
+                <label class="playerX_wrapper">
+                    <img src="assets/input_dec_right.svg" alt="border">
+                    <input type="text" id="playerX_name" name="playerX_name" placeholder="Enter name" required><br>
                 </label>
-
-                <label>
-                    <p>0 player</p>
-                    <input type="text" id="player0_name" name="player0_name" placeholder="Enter your name:" required><br>
+                <span>
+                    <img src="assets/X.svg" alt="x">
+                     VS 
+                    <img src="assets/O.svg" alt="0">
+                </span>
+                <label class="player0_wrapper">
+                    <img src="assets/input_dec_left.svg" alt="border">
+                    <input type="text" id="player0_name" name="player0_name" placeholder="Enter name" required><br>
                 </label>
-
-            <button type="submit" id="start_btn">START</button>
         </form>
     </div>
 
 
-
+    <!-- <p class="turn"> Hello! </p> -->
     <div class="gamefield_wrapper">
-        <p class="turn"> Hello! </p>
         <div class="gamefield"> 
             <div class="cell"></div>
             <div class="cell"></div>
@@ -42,10 +43,43 @@
         </div>
     </div>
 
-    <button class="restart_btn">RESTART</button>
-
+    <button type="submit" id="start_btn">
+        <div class="blue_line line_t_r"></div>
+        <div class="blue_line line_t_l"></div>
+        <span>
+            <div class="purple_line p_line_t">
+                <img src="assets/purple_line_btn.svg" alt="">
+            </div>
+            PLAY
+            <div class="purple_line p_line_b">
+                <img src="assets/purple_line_btn.svg" alt="">
+            </div>
+        </span>
+        <div class="purple_line p_line_b"></div>
+        <div class="blue_line line_b_r"></div>
+        <div class="blue_line line_b_l"></div>
+    </button>
+    <!-- <button class="restart_btn">RESTART</button> -->
+    
     <div class="congrats_table">
         <p class="congrats">Congrats! You win!</p>
+
+        <button id="restart_btn">
+            <div class="blue_line line_t_r"></div>
+            <div class="blue_line line_t_l"></div>
+            <span>
+                <div class="purple_line p_line_t">
+                    <img src="assets/purple_line_btn.svg" alt="">
+                </div>
+                RESTART
+                <div class="purple_line p_line_b">
+                    <img src="assets/purple_line_btn.svg" alt="">
+                </div>
+            </span>
+            <div class="purple_line p_line_b"></div>
+            <div class="blue_line line_b_r"></div>
+            <div class="blue_line line_b_l"></div>
+        </button>
     </div>
 </body>
 </html>

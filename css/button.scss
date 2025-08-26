@@ -1,0 +1,98 @@
+@mixin kode-mono () {
+    font-family: "Kode Mono", monospace;
+    font-weight: bold;
+    color: #FFF;
+}
+
+button{
+    cursor: pointer;
+    border-radius: 2px;
+    border: 3px solid #cf7dedcc;
+    padding: 5px 150px;
+    font-size: 24px;
+    font-weight: 600; 
+    width: fit-content;
+    display: block;
+    margin: 0 auto;
+    background-color: transparent;
+    position: relative;
+
+    box-shadow:
+    0 0 10px #5E1289,
+    0 0 10px #5E1289,
+    0 0 20px #5E1289,
+    0 0 10px #5E1289,
+    inset 0 0 30px #5E1289;
+
+    @include kode-mono();
+    font-size: 46px;
+
+    span{
+        position: relative;
+        .purple_line{
+            position: absolute;
+            
+        }
+        .p_line_t{
+            top: -50px;
+            left: -105px;
+            transform: scaleY(-1);
+        }
+        .p_line_b{
+            left: -105px;
+            bottom: -50px;
+        }
+    }
+    .blue_line{
+        display: block;
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        width: 48px;
+        height: 32px;
+        position: absolute;
+        background-image: url(../assets/button_dec_blue_line.svg);
+    }
+    .line_t_r{
+        top: -7px;
+        right: -7px;
+        rotate: (180deg);
+        transform: scaleX(-1)
+    }
+    .line_t_l{
+        top: -7px;
+        left: -7px;
+        rotate: (180deg);
+    }
+    .line_b_l{
+        bottom: -7px;
+        left: -7px;
+        rotate: (180deg);
+        transform: scaleY(-1);
+    }
+    .line_b_r{
+        bottom: -7px;
+        right: -7px;
+    }
+}
+
+button::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    right: -50px;
+    width: 47px;
+    height: 62px;
+    background-image: url(../assets/button_triangle.svg);
+}
+button::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 5px;
+    left: -50px;
+    width: 47px;
+    height: 62px;
+    background-image: url(../assets/button_triangle.svg);
+    rotate: (180deg);
+}

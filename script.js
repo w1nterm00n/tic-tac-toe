@@ -1,16 +1,13 @@
-let whoseTurn;   
+let whoseTurn;  
+
 let startButton = document.getElementById('start_btn');
 let congratsTable = document.querySelector('.congrats_table');
-let restartButton = document.querySelector('.restart_btn');
 
 startButton.addEventListener('click', function(event){
     event.preventDefault();
     game.start();
 });
 
-restartButton.addEventListener('click', function(){
-    game.restart();
-});
 
 let game = {
         winnerTag: "nobody",  //здесь хранится победитель (X или 0)
@@ -19,7 +16,7 @@ let game = {
                 players.getPersonName();
                 let cells = gameboard.createArray();
                 whoseTurn = "X";
-                gameboard.showWhoseTurn(whoseTurn);
+                //gameboard.showWhoseTurn(whoseTurn);
                 cells.forEach(function(cell) {
                     cell.addEventListener('click', () => {
                         gameboard.tagging (whoseTurn, cell); 
@@ -49,7 +46,7 @@ let game = {
                 } else {
                     whoseTurn = "X";
                 };
-                gameboard.showWhoseTurn();
+                //gameboard.showWhoseTurn();
             }
         },
 
@@ -144,22 +141,22 @@ let gameboard = {
             if (this.gameboardArray[rowIndex][columnIndex].value) {
                 alert ("its already clicked!");
             } else {
-                cell.textContent = whoseTurn;
+                cell.textContent = whoseTurn;                   //здесь ставим метку в клеточку!
                 this.gameboardArray[rowIndex][columnIndex].value = whoseTurn;
                 game.process(whoseTurn);
             };
         },
 
-        showWhoseTurn: function() {
-            let whoseTurnName;
-            if (players.player0.tag == whoseTurn) {
-                whoseTurnName = players.player0.name;
-            } else {
-                whoseTurnName = players.playerX.name;
-            }
-            let turn = document.querySelector('.turn');
-            turn.textContent = whoseTurnName + " turn!";
-        },
+        // showWhoseTurn: function() {
+        //     let whoseTurnName;
+        //     if (players.player0.tag == whoseTurn) {
+        //         whoseTurnName = players.player0.name;
+        //     } else {
+        //         whoseTurnName = players.playerX.name;
+        //     }
+        //     let turn = document.querySelector('.turn');
+        //     turn.textContent = whoseTurnName + " turn!";
+        // },
 
         showWinner: function() {
             let winnerName;
@@ -168,9 +165,15 @@ let gameboard = {
             } else {
                 winnerName = players.playerX.name;
             }
-            congratsTable.style.cssText = 'display: block;';
+            congratsTable.style.cssText = 'display: flex;';
             let congrats = document.querySelector('.congrats');
-            congrats.textContent = "Congrats! " + winnerName + " win!"
+            congrats.textContent =  winnerName + " won";
+
+            let restartButton = document.querySelector('#restart_btn');
+
+            restartButton.addEventListener('click', function(){
+                game.restart();
+            }); 
         }
 
 };

@@ -1,53 +1,113 @@
-@import url(_normalize.scss);
+@import url(__normalize.scss);
+@import url(button.css);
+@import url(congrats_table.css);
+@import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Oxanium:wght@200..800&display=swap");
+html {
+  background-color: #150332;
+  background-image: repeating-linear-gradient(to right, rgba(116, 34, 189, 0.1) 0, rgba(116, 34, 189, 0.1) 3px, transparent 5px, transparent 80px), repeating-linear-gradient(to bottom, rgba(116, 34, 189, 0.1) 0, rgba(116, 34, 189, 0.1) 3px, transparent 5px, transparent 80px);
+}
+
 .enter_names_fields_wrapper {
   padding-top: 0px;
   width: -moz-fit-content;
   width: fit-content;
-  margin: 0 auto;
+  margin: 50px auto 0 auto;
 }
 .enter_names_fields_wrapper #enter_names_fields {
   display: flex;
-  gap: 100px;
+  gap: 50px;
 }
 .enter_names_fields_wrapper #enter_names_fields label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
 }
 .enter_names_fields_wrapper #enter_names_fields label p {
   font-size: 32px;
   font-style: normal;
   font-weight: 600;
-  margin-bottom: 35px;
 }
 .enter_names_fields_wrapper #enter_names_fields label input {
   height: 40px;
-  border: 1px solid #000;
-  color: #000;
+  border: none;
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  color: #FFF;
   font-size: 24px;
   font-weight: 500;
+  max-width: 180px;
+  background-color: transparent;
+  margin-top: 5px;
+  margin-left: 10px;
 }
-.enter_names_fields_wrapper #enter_names_fields #start_btn {
-  height: -moz-min-content;
-  height: min-content;
-  align-self: flex-end;
+.enter_names_fields_wrapper #enter_names_fields label #playerX_name, .enter_names_fields_wrapper #enter_names_fields label #player0_name {
+  position: absolute;
+  top: 20px;
 }
-
-button {
-  border-radius: 20px;
-  border: 1px solid #000;
-  background: #DECAAB;
-  padding: 13px 40px;
-  font-size: 24px;
-  font-weight: 600;
-  width: -moz-fit-content;
-  width: fit-content;
+.enter_names_fields_wrapper #enter_names_fields label input::-moz-placeholder {
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 20px;
+}
+.enter_names_fields_wrapper #enter_names_fields label input::placeholder {
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 20px;
+}
+.enter_names_fields_wrapper #enter_names_fields label #player0_name::-moz-placeholder {
+  padding-left: 60px;
+}
+.enter_names_fields_wrapper #enter_names_fields label #player0_name::placeholder {
+  padding-left: 60px;
+}
+.enter_names_fields_wrapper #enter_names_fields label input:focus {
+  outline: none;
+}
+.enter_names_fields_wrapper #enter_names_fields span {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: center;
+  height: -moz-fit-content;
+  height: fit-content;
+  font-family: "Kode Mono", monospace;
+  font-weight: bold;
+  color: #FFF;
+  font-size: 39px;
+  margin-top: 10px;
+}
+.enter_names_fields_wrapper #enter_names_fields label::after {
+  background-image: url(../assets/triangle.svg);
+  content: "";
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 40px;
   display: block;
-  margin: 0 auto;
+  position: absolute;
+}
+.enter_names_fields_wrapper #enter_names_fields .playerX_wrapper::after {
+  left: 30px;
+  transform: rotate(180deg);
+  top: 25px;
+}
+.enter_names_fields_wrapper #enter_names_fields .player0_wrapper::after {
+  right: 30px;
+  top: 30px;
 }
 
 .gamefield_wrapper {
-  margin-bottom: 30px;
+  width: 35vw;
+  height: 35vw;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url(../assets/Board.svg);
+  background-size: 35vw 35vw;
 }
 .gamefield_wrapper p.turn {
   font-size: 32px;
@@ -56,9 +116,9 @@ button {
 }
 .gamefield_wrapper .gamefield {
   display: grid;
-  width: 360px;
-  height: 360px;
-  margin: 0 auto;
+  width: 25vw;
+  height: 25vw;
+  margin: 50px auto 0 auto;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
 }
@@ -67,27 +127,14 @@ button {
   margin-bottom: 30px;
 }
 
-.congrats_table {
-  display: none;
-  border: 1px solid #000;
-  background: #ABDECA;
-  width: -moz-fit-content;
-  width: fit-content;
-  padding: 0px 40px;
-  margin: 0 auto;
-}
-.congrats_table p.congrats {
-  font-size: 32px;
-  font-weight: 600;
-}
-
 .cell {
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 50px;
   font-weight: bolder;
-  border: 1px solid black;
+  border: none;
   margin-right: 1px;
   margin-bottom: 1px;
+  color: #FFF;
 }/*# sourceMappingURL=styles.css.map */

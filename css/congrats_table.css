@@ -1,0 +1,25 @@
+.congrats_table {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  border: 1px solid #000;
+  background: #000000;
+  padding: 0px 40px;
+  margin: 0 auto;
+  height: 99vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  border: 3px solid #CB7AE6;
+  box-shadow: inset 0 0 30px #460E5D, inset 0 0 30px #460E5D, inset 0 0 40px #460E5D;
+}
+.congrats_table p.congrats {
+  font-size: 80px;
+  font-weight: 600;
+  font-family: "Oxanium", sans-serif;
+  color: #FFF;
+  text-shadow: 0 0 20px #0330AA, 0 0 40px #072168;
+}/*# sourceMappingURL=congrats_table.css.map */
