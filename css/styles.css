@@ -1,5 +1,6 @@
 @import url(__normalize.scss);
 @import url(button.css);
+@import url(animation.css);
 @import url(congrats_table.css);
 @import url("https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Oxanium:wght@200..800&display=swap");
 html {
@@ -45,22 +46,24 @@ html {
   position: absolute;
   top: 20px;
 }
-.enter_names_fields_wrapper #enter_names_fields label input::-moz-placeholder {
+.enter_names_fields_wrapper #enter_names_fields label .fake-placeholder {
+  position: absolute;
+  left: 80px;
+  top: 34%;
+  transform: translateY(-50%);
+  pointer-events: none;
   font-family: "Kode Mono", monospace;
   font-weight: bold;
   color: #FFF;
   font-size: 20px;
 }
-.enter_names_fields_wrapper #enter_names_fields label input::placeholder {
-  font-family: "Kode Mono", monospace;
-  font-weight: bold;
-  color: #FFF;
-  font-size: 20px;
+.enter_names_fields_wrapper #enter_names_fields label input:not(:-moz-placeholder) ~ .fake-placeholder {
+  display: none;
 }
-.enter_names_fields_wrapper #enter_names_fields label #player0_name::-moz-placeholder {
-  padding-left: 60px;
+.enter_names_fields_wrapper #enter_names_fields label input:not(:placeholder-shown) ~ .fake-placeholder, .enter_names_fields_wrapper #enter_names_fields label input:focus ~ .fake-placeholder {
+  display: none;
 }
-.enter_names_fields_wrapper #enter_names_fields label #player0_name::placeholder {
+.enter_names_fields_wrapper #enter_names_fields label .fp-r {
   padding-left: 60px;
 }
 .enter_names_fields_wrapper #enter_names_fields label input:focus {

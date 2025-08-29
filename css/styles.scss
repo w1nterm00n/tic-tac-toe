@@ -1,5 +1,6 @@
 @import url(__normalize.scss);
 @import url(button.css);
+@import url(animation.css);
 @import url(congrats_table.css);
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Oxanium:wght@200..800&display=swap');
 @mixin oxanium {
@@ -64,13 +65,26 @@ html{
                 position: absolute;
                 top: 20px;
             }
-            input::placeholder{
+            .fake-placeholder{
+                position: absolute;
+                left: 80px;
+                top: 34%;
+                transform: translateY(-50%);
+                pointer-events: none;
                 @include kode-mono();
                 font-size: 20px;
             }
-            #player0_name::placeholder{
+
+            & input:not(:placeholder-shown) ~ .fake-placeholder,
+            & input:focus ~ .fake-placeholder {
+                display: none;
+            }
+
+            .fp-r{
                 padding-left: 60px;
             }
+
+
             input:focus {
                 outline: none;
             }
