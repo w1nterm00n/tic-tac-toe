@@ -1,3 +1,4 @@
+import animation from "./animation.js";
 import gameboard from "./gameboard.js";
 import players from "./players.js";
 import { state } from "./state.js";
@@ -6,6 +7,7 @@ let game = {
     winnerTag: "nobody",  //здесь хранится победитель (X или 0)
 
     start: function () {
+        animation.removeStartBtnAnimation();
         if (state.whoseTurn == undefined) {       //это означает "если "start" кликнут первый раз", потому что иначе whoseTurn будет "X" или "0"
             players.getPersonName();
             let cells = gameboard.createArray();

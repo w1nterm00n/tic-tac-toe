@@ -126,6 +126,7 @@ html{
     @include kode-mono();
     font-size: 30px;
     margin: 0 !important;
+    transition: opacity 0.5s ease;
 }
 
 .gamefield_wrapper{

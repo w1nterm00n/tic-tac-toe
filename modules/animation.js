@@ -41,6 +41,9 @@ let animation = {
         startBtn.disabled = false;
         startBtn.classList.add("animatedBtn");
     },
+    removeStartBtnAnimation(){
+        startBtn.classList.remove("animatedBtn");
+    }
     //сделать как-то так, чтобы в случае если 
     //оба input-а были заполненны - кнопка play например
     //становилась красного цвета

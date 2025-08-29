@@ -37,7 +37,11 @@ let gameboard = {
             whoseTurnName = players.playerX.name;
         }
         let turn = document.querySelector('.turn');
-        turn.textContent = whoseTurnName + " turn!";
+        turn.style.opacity = 0;
+        setTimeout(() => {
+            turn.textContent = whoseTurnName + " turn!";
+            turn.style.opacity = 1;
+          }, 300);
     },
 
     showWinner: function() {
