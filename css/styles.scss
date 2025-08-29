@@ -153,6 +153,11 @@ html{
     }
 }
 
+button[disabled]{
+    box-shadow: none;
+    color: #818181;
+}
+
 .restart_btn{
     margin-bottom: 30px; //убери
 }

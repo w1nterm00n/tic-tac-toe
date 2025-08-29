@@ -2,13 +2,18 @@ let leftInput = document.getElementById('playerX_name');
 let leftWrapper = document.querySelector('.playerX_wrapper');
 let rightInput = document.getElementById('player0_name');
 let rightWrapper = document.querySelector('.player0_wrapper');
+let startBtn = document.getElementById('start_btn');
 
-//поменять чтобы стили привязывались к label
 let animation = {
     inputAnimation() {
         function syncRight() {
+            if ((leftInput.value.trim() !== "") 
+                && (rightInput.value.trim() !== "")) {
+                animation.animateStartBtn();
+            }
             if (rightInput.value.trim() === "") {
               rightWrapper.classList.add("input-empty");
+              animation.setStartBtnDisabled();
             } else {
               rightWrapper.classList.remove("input-empty");
             }
@@ -16,6 +21,7 @@ let animation = {
         function syncLeft() {
             if (leftInput.value.trim() === "") {
               leftWrapper.classList.add("input-empty");
+              animation.setStartBtnDisabled();
             } else {
               leftWrapper.classList.remove("input-empty");
               syncRight();
@@ -24,7 +30,18 @@ let animation = {
         syncLeft();
         leftInput.addEventListener("input", syncLeft);
         rightInput.addEventListener("input", syncRight);
-    }
+    },
+
+    setStartBtnDisabled() {
+        startBtn.disabled = true;
+    },
+
+    animateStartBtn(){
+        startBtn.disabled = false;
+    },
+    //сделать как-то так, чтобы в случае если 
+    //оба input-а были заполненны - кнопка play например
+    //становилась красного цвета
 }
 
 export default animation;
