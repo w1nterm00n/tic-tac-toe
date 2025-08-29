@@ -149,10 +149,31 @@ button[disabled] {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 50px;
   font-weight: bolder;
   border: none;
   margin-right: 1px;
   margin-bottom: 1px;
   color: #FFF;
+}
+
+.XcellHover {
+  background-image: linear-gradient(rgba(21, 3, 50, 0.5), rgba(21, 3, 50, 0.5)), url(../assets/X.svg);
+  background-size: cover;
+  height: 80%;
+}
+
+.OcellHover {
+  background-image: linear-gradient(rgba(21, 3, 50, 0.5), rgba(21, 3, 50, 0.5)), url(../assets/O.svg);
+  background-size: cover;
+  height: 88%;
+}
+
+.Xcell {
+  background-image: url(../assets/X.svg);
+  background-size: cover;
+}
+
+.Ocell {
+  background-image: url(../assets/O.svg);
+  background-size: cover;
 }/*# sourceMappingURL=styles.css.map */

@@ -17,6 +17,15 @@ let game = {
                 cell.addEventListener('click', () => {
                     gameboard.tagging (state.whoseTurn, cell); 
                 })
+                cell.addEventListener("mouseenter", () => {
+                    console.log("Навёл мышку");
+                    cell.classList.add(state.whoseTurn === "X" ? "XcellHover" : "OcellHover");
+                });
+                cell.addEventListener("mouseleave", () => {
+                    console.log("Убрал мышку");
+                    cell.classList.remove(state.whoseTurn === "X" ? "XcellHover" : "OcellHover");
+                });
+                  
             })
         } else {
             game.restart(); 
@@ -28,6 +37,7 @@ let game = {
         cells.forEach((cell) => { //очищаем клетки
             cell.textContent = "";
             cell.value = undefined;
+            cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
         //скрываем congrats table
         let congratsTable = document.querySelector('.congrats_table');

@@ -23,7 +23,7 @@ let gameboard = {
         if (this.gameboardArray[rowIndex][columnIndex].value) {
             alert ("its already clicked!");
         } else {
-            cell.textContent = whoseTurn;                   //здесь ставим метку в клеточку!
+            cell.classList.add(whoseTurn === "X" ? "Xcell" : "Ocell");
             this.gameboardArray[rowIndex][columnIndex].value = whoseTurn;
             game.processOfGame(whoseTurn);
         };
