@@ -1,3 +1,4 @@
+import animation from "./animation.js";
 import game from "./game.js";
 import players from "./players.js";
 import { state } from "./state.js";
@@ -55,7 +56,7 @@ let gameboard = {
         congratsTable.style.cssText = 'display: flex;';
         let congrats = document.querySelector('.congrats');
         congrats.textContent =  winnerName + " won";
-
+        animation.showConfetti();
         let restartButton = document.querySelector('#restart_btn');
 
         restartButton.addEventListener('click', function(){

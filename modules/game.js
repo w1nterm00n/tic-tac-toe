@@ -18,11 +18,9 @@ let game = {
                     gameboard.tagging (state.whoseTurn, cell); 
                 })
                 cell.addEventListener("mouseenter", () => {
-                    console.log("Навёл мышку");
                     cell.classList.add(state.whoseTurn === "X" ? "XcellHover" : "OcellHover");
                 });
                 cell.addEventListener("mouseleave", () => {
-                    console.log("Убрал мышку");
                     cell.classList.remove("XcellHover", "OcellHover");
                 });
                   

@@ -43,10 +43,28 @@ let animation = {
     },
     removeStartBtnAnimation(){
         startBtn.classList.remove("animatedBtn");
+    },
+    showConfetti(){
+      const duration = 2000;
+      const end = Date.now() + duration;
+
+      (function frame() {
+        // два источника по краям, имитация взрывов
+        confetti({ particleCount: 2, angle: 60, spread: 75, origin: { x: 0 } });
+        confetti({ particleCount: 2, angle: 120, spread: 75, origin: { x: 1 } });
+
+        // случайные “взрывы” вверху
+        confetti({
+          particleCount: 30,
+          spread: 60,
+          startVelocity: 45,
+          ticks: 120,
+          origin: { x: Math.random(), y: Math.random() * 0.3 }
+        });
+
+        if (Date.now() < end) requestAnimationFrame(frame);
+        })();
     }
-    //сделать как-то так, чтобы в случае если 
-    //оба input-а были заполненны - кнопка play например
-    //становилась красного цвета
 }
 
 export default animation;
