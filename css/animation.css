@@ -1,5 +1,13 @@
-.input-empty {
+.input-empty .fake-placeholder {
   animation: shadow-blink 2s infinite;
+}
+
+.input-empty.playerX_wrapper::after {
+  animation: triangle-move-left 1.5s infinite;
+}
+
+.input-empty.player0_wrapper::after {
+  animation: triangle-move-right 1.5s infinite;
 }
 
 @keyframes shadow-blink {
@@ -8,5 +16,21 @@
   }
   50% {
     text-shadow: 0 0 2px rgba(148, 0, 211, 0.2), 0 0 4px rgba(148, 0, 211, 0.1), 0 0 8px rgba(148, 0, 211, 0.05);
+  }
+}
+@keyframes triangle-move-left {
+  0%, 100% {
+    left: 30px;
+  }
+  50% {
+    left: 35px;
+  }
+}
+@keyframes triangle-move-right {
+  0%, 100% {
+    right: 30px;
+  }
+  50% {
+    right: 35px;
   }
 }/*# sourceMappingURL=animation.css.map */

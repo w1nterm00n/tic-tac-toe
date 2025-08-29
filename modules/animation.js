@@ -1,23 +1,23 @@
 let leftInput = document.getElementById('playerX_name');
-let leftSpanPH = document.querySelector('.fp-l');
+let leftWrapper = document.querySelector('.playerX_wrapper');
 let rightInput = document.getElementById('player0_name');
-let rightSpanPH = document.querySelector('.fp-r');
+let rightWrapper = document.querySelector('.player0_wrapper');
 
-
+//поменять чтобы стили привязывались к label
 let animation = {
     inputAnimation() {
         function syncRight() {
             if (rightInput.value.trim() === "") {
-              rightSpanPH.classList.add("input-empty");
+              rightWrapper.classList.add("input-empty");
             } else {
-              rightSpanPH.classList.remove("input-empty");
+              rightWrapper.classList.remove("input-empty");
             }
         }
         function syncLeft() {
             if (leftInput.value.trim() === "") {
-              leftSpanPH.classList.add("input-empty");
+              leftWrapper.classList.add("input-empty");
             } else {
-              leftSpanPH.classList.remove("input-empty");
+              leftWrapper.classList.remove("input-empty");
               syncRight();
             }
         }
