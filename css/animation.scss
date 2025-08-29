@@ -15,7 +15,31 @@
     span{
         animation: shadow-blink 2s infinite;
     }
+    //при наведении на кнопку: 
+        //вокруг border-а становится ещё более яркий box-shadow
+        //створочки раздвигаются
 }
+
+.animatedBtn:hover{
+    box-shadow:
+    0 0 20px #5E1289,
+    0 0 20px #5E1289,
+    0 0 40px #5E1289,
+    0 0 50px #5E1289,
+    inset 0 0 30px #5E1289;
+    span{
+        .p_line_t{
+            top: -54px;
+            transition: all 0.6s ease;
+        }
+        .p_line_b{
+            bottom: -54px;
+            transition: all 0.6s ease;
+        }
+    }
+}
+
+
 .animatedBtn::after {
     animation: btn-triangle-move-right 1s infinite;
 }

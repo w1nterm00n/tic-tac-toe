@@ -16,6 +16,7 @@ button{
     margin: 0 auto;
     background-color: transparent;
     position: relative;
+    width: 416px; //change while adapting UI
 
     box-shadow:
     0 0 10px #5E1289,
@@ -34,13 +35,13 @@ button{
             
         }
         .p_line_t{
-            top: -50px;
+            top: -47px;
             left: -105px;
             transform: scaleY(-1);
         }
         .p_line_b{
             left: -105px;
-            bottom: -50px;
+            bottom: -47px;
         }
     }
     .blue_line{
@@ -72,6 +73,14 @@ button{
     .line_b_r{
         bottom: -7px;
         right: -7px;
+    }
+}
+
+#restart_btn{
+    span{
+        .text{
+            right: 40px;
+        }
     }
 }
 

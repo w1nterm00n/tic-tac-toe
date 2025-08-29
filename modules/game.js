@@ -23,7 +23,7 @@ let game = {
                 });
                 cell.addEventListener("mouseleave", () => {
                     console.log("Убрал мышку");
-                    cell.classList.remove(state.whoseTurn === "X" ? "XcellHover" : "OcellHover");
+                    cell.classList.remove("XcellHover", "OcellHover");
                 });
                   
             })
