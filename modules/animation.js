@@ -34,10 +34,12 @@ let animation = {
 
     setStartBtnDisabled() {
         startBtn.disabled = true;
+        startBtn.classList.remove("animatedBtn");
     },
 
     animateStartBtn(){
         startBtn.disabled = false;
+        startBtn.classList.add("animatedBtn");
     },
     //сделать как-то так, чтобы в случае если 
     //оба input-а были заполненны - кнопка play например

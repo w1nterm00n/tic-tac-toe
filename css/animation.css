@@ -10,6 +10,34 @@
   animation: triangle-move-right 1.5s infinite;
 }
 
+.animatedBtn span {
+  animation: shadow-blink 2s infinite;
+}
+
+.animatedBtn::after {
+  animation: btn-triangle-move-right 1s infinite;
+}
+
+.animatedBtn::before {
+  animation: btn-triangle-move-left 1s infinite;
+}
+
+@keyframes btn-triangle-move-right {
+  0%, 100% {
+    right: -50px;
+  }
+  50% {
+    right: -40px;
+  }
+}
+@keyframes btn-triangle-move-left {
+  0%, 100% {
+    left: -50px;
+  }
+  50% {
+    left: -40px;
+  }
+}
 @keyframes shadow-blink {
   0%, 100% {
     text-shadow: 0 0 5px rgba(148, 0, 211, 0.9), 0 0 10px rgba(148, 0, 211, 0.8), 0 0 20px rgba(148, 0, 211, 0.7), 0 0 40px rgba(148, 0, 211, 0.6);
