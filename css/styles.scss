@@ -2,6 +2,7 @@
 @import url(button.css);
 @import url(animation.css);
 @import url(congrats_table.css);
+@import url(media_queries.css);
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&family=Oxanium:wght@200..800&display=swap');
 @mixin oxanium {
     font-family: "Oxanium", sans-serif;
@@ -131,14 +132,14 @@ html{
 
 .gamefield_wrapper{
     //margin-bottom: 30px;
-    width: 35vw;
-    height: 35vw;
+    width: 32vw;
+    height: 32vw;
     margin: 0 auto;
     display: flex;
     justify-content: center;
     align-items: center;
     background-image: url(../assets/Board.svg);
-    background-size: 35vw 35vw;
+    background-size: 32vw 32vw;
     p.turn{
         font-size: 32px;
         font-weight: 600; 
@@ -146,8 +147,8 @@ html{
     }
     .gamefield{
         display: grid;
-        width: 25vw;
-        height: 25vw;
+        width: 22vw;
+        height: 22vw;
         margin: 50px auto 0 auto;
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: repeat(3, 1fr);

@@ -1,0 +1,320 @@
+@media (max-width: 1200px) {
+    .gamefield_wrapper{
+        width: 40vw !important;
+        height: 40vw !important;
+        background-size: 40vw 40vw !important;
+        .gamefield{
+            width: 28vw !important;
+            height: 28vw !important;
+        }
+    }
+}
+
+@media (max-width: 1000px) {
+    .gamefield_wrapper{
+        width: 50vw !important;
+        height: 50vw !important;
+        background-size: 50vw 50vw !important;
+        .gamefield{
+            width: 35vw !important;
+            height: 35vw !important;
+        }
+    }
+    #enter_names_fields{
+        gap: 20px !important;
+        .XvsO{
+            gap: 5px !important;
+            font-size: 29px !important;
+            img{
+                width: 50px;
+            }
+        }
+        label{
+            img{
+                width: 250px;
+            }
+            input{
+                font-size: 20px !important;
+                max-width: 120px;
+                height: 20px !important;
+            }
+            span{
+                font-size: 18px !important;
+                left: 60px !important;
+                top: 28% !important;
+            }
+        }
+        .playerX_wrapper::after{
+            left: 20px;
+            top: 19px !important;
+            width: 15px !important;
+            height: 30px !important;
+        }
+        .playerX_wrapper{
+            input{
+                margin-left: 25px !important;
+            }
+        }
+        .player0_wrapper::after{
+            top: 21px !important;
+            width: 15px !important;
+            height: 30px !important;
+        }
+        .player0_wrapper{
+            input{
+                margin-left: 55px !important;
+            }
+            span{
+                padding-left: 0 !important;
+            }
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .gamefield_wrapper{
+        width: 60vw !important;
+        height: 60vw !important;
+        background-size: 60vw 60vw !important;
+        .gamefield{
+            width: 42vw !important;
+            height: 42vw !important;
+        }
+    }
+    .congrats_table{
+        .congrats{
+            font-size: 50px !important;
+        }
+        #restart_btn{
+            span{
+                .text{
+                    right: 68px;
+                }
+            }
+        }
+    }
+    button{
+        width: 300px;
+        span{
+            .purple_line{
+                width: 220px !important;
+                img{
+                    width: 220px !important; 
+                }
+            }
+            .text{
+                font-size: 36px;
+                right: 35px;
+            }
+        }
+    }
+}
+
+@media (max-width: 700px) {
+    #enter_names_fields{
+        gap: 10px !important; //
+        .XvsO{
+            font-size: 25px !important; //
+            img{
+                width: 40px; //
+            }
+        }
+        label{
+            img{
+                width: 170px !important; //
+            }
+            input{
+                font-size: 14px !important; //
+                max-width: 100px !important; //
+                height: 18px !important; //
+                margin-top: -7px !important;//
+            }
+            span{
+                font-size: 14px !important; //
+                left: 40px !important; //
+                top: 24% !important; //
+            }
+        }
+        .playerX_wrapper::after{
+            left: 15px; //
+            top: 14px !important; //
+            width: 15px !important;
+            height: 20px !important; //
+        }
+        .player0_wrapper::after{
+            right: 15px; //
+            top: 14px !important; //
+            width: 15px !important;
+            height: 20px !important; //
+        }
+    }
+
+    @keyframes triangle-move-left {
+        0%, 100% {
+            left: 15px;
+          }
+          50% {
+            left: 20px;
+          }
+    }
+    
+    @keyframes triangle-move-right {
+        0%, 100% {
+            right: 15px;
+          }
+          50% {
+            right: 20px;
+          }
+    }
+}
+
+@media (max-width: 500px) {
+    .turn{
+        font-size: 20px !important;
+    }
+    .gamefield_wrapper{
+        width: 90vw !important;
+        height: 90vw !important;
+        background-size: 90vw 90vw !important;
+        .gamefield{
+            width: 57vw !important;
+            height: 57vw !important;
+        }
+    }
+    #enter_names_fields{
+        .XvsO{
+            margin-top: 5px !important; 
+            font-size: 20px !important; 
+            img{
+                width: 30px; 
+            }
+        }
+        label{
+            img{
+                width: 130px !important; 
+            }
+            input{
+                font-size: 14px !important; 
+                max-width: 100px !important; 
+                height: 12px !important; 
+                margin-top: -7px !important;
+            }
+            span{
+                font-size: 11px !important;  
+                left: 40px !important; 
+                top: 24% !important;
+                margin-top: 5px !important; 
+            }
+            .fp-l{
+                left: 30px !important; 
+            }
+        }
+        .playerX_wrapper::after{
+            display: none !important; 
+        }
+        .player0_wrapper::after{
+            display: none !important; 
+        }
+    }
+    button{
+        width: 200px !important;
+        padding: 5px 50px !important;
+        span{
+            .purple_line{
+                width: 120px !important;
+                img{
+                    width: 120px !important; 
+                }
+            }
+            .p_line_t{
+                left: -28px;
+                top: -35px;
+            }
+            .p_line_b{
+                left: -28px;
+                bottom: -35px;
+            }
+            .text{
+                font-size: 26px;
+                right: 0px;
+            }
+        }
+    }
+    .animatedBtn:hover{
+        span{
+            .p_line_t{
+                top: -40px;
+                transition: all 0.6s ease;
+            }
+            .p_line_b{
+                bottom: -40px;
+                transition: all 0.6s ease;
+            }
+        }
+    }
+    .congrats_table{
+        .congrats{
+            font-size: 40px !important;
+        }
+        #restart_btn{
+            span{
+                .text{
+                    right: 2px;
+                    font-size: 22px;
+                    top: -7px;
+                }
+                .purple_line{
+                    left: -18px;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 400px) {
+    #enter_names_fields{
+        gap: 0px !important; 
+        .XvsO{
+            font-size: 16px !important; 
+            gap: 1px !important; 
+            img{
+                width: 25px; 
+            }
+        }
+        label{
+            img{
+                width: 100px !important; 
+            }
+            input{
+                max-width: 60px !important; 
+                top: 14px !important; 
+            }
+            span{
+                font-size: 10px !important;  
+                left: 20px !important; 
+                top: 24% !important;
+                margin-top: 5px !important; 
+            }
+            .fp-l{
+                left: 10px !important; 
+            }
+        }
+
+        .player0_wrapper{
+            input{
+                margin-left: 0 !important; 
+            }
+        }
+        .playerX_wrapper{
+            input{
+                margin-left: 0 !important; 
+            }
+        }
+    }
+    .congrats_table{
+        .congrats{
+            font-size: 24px !important;
+        }
+    }
+}
