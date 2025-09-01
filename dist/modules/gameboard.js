@@ -45,7 +45,6 @@ let gameboard = {
         else {
             winnerName = players.playerX.name;
         }
-        console.log("winner: ", winnerName);
         let congratsTable = document.querySelector('.congrats_table');
         congratsTable.style.cssText = 'display: flex;';
         let congrats = document.querySelector('.congrats');

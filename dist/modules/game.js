@@ -3,49 +3,54 @@ import gameboard from "./gameboard.js";
 import players from "./players.js";
 import { state } from "./state.js";
 let game = {
-    winnerTag: "nobody", //здесь хранится победитель (X или 0)
+    winnerTag: undefined,
     start: function () {
         animation.removeStartBtnAnimation();
-        if (state.whoseTurn == undefined) { //это означает "если "start" кликнут первый раз", потому что иначе whoseTurn будет "X" или "0"
+        if (state.whoseTurn === null) { //this means "if "start" clicked first time", because otherwise whoseTurn will be "X" or "0"
             players.getPersonName();
             let cells = gameboard.createArray();
             state.whoseTurn = "X";
-            gameboard.showWhoseTurn(state.whoseTurn);
+            gameboard.showWhoseTurn();
             cells.forEach(function (cell) {
-                cell.addEventListener('click', () => {
-                    gameboard.tagging(state.whoseTurn, cell);
+                cell.addEventListener('click', (e) => {
+                    if (state.whoseTurn) {
+                        gameboard.tagging(state.whoseTurn, cell);
+                    }
+                    else {
+                        console.log("whoseTurn is null");
+                        return;
+                    }
                 });
-                cell.addEventListener("mouseenter", () => {
+                cell.addEventListener("mouseenter", (e) => {
                     cell.classList.add(state.whoseTurn === "X" ? "XcellHover" : "OcellHover");
                 });
-                cell.addEventListener("mouseleave", () => {
+                cell.addEventListener("mouseleave", (e) => {
                     cell.classList.remove("XcellHover", "OcellHover");
                 });
             });
         }
         else {
-            game.restart();
+            this.restart();
         }
     },
     restart: function () {
         let cells = document.querySelectorAll('.cell');
         cells.forEach((cell) => {
             cell.textContent = "";
-            cell.value = undefined;
+            cell.dataset.value = "";
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
-        //скрываем congrats table
+        //hide congrats table
         let congratsTable = document.querySelector('.congrats_table');
         congratsTable.style.cssText = "display: none; ";
     },
     processOfGame: function () {
         let isWin = this.isWining();
-        console.log("process of game: ", isWin);
         if (isWin) {
             gameboard.showWinner();
         }
         else {
-            if (state.whoseTurn === "X") { //to-do: сделать whoseTurn типом который принимает либо "X" либо "0"
+            if (state.whoseTurn === "X") {
                 state.whoseTurn = "0";
             }
             else {
@@ -57,45 +62,45 @@ let game = {
     },
     isWining: function () {
         let win = false;
-        //проверка для строк
+        //checking rows
         for (let i = 0; i < 3; i++) {
             let x = gameboard.gameboardArray[i][0].dataset.value;
             for (let j = 0; j < 3; j++) {
-                if (gameboard.gameboardArray[i][j].dataset.value != x)
+                if (gameboard.gameboardArray[i][j].dataset.value !== x)
                     break;
-                if ((j == 2) && x != undefined) {
+                if ((j === 2) && x !== undefined) {
                     win = true;
-                    game.winnerTag = x;
+                    this.winnerTag = x;
                     break;
                 }
             }
         }
-        //проверка для столбцов
+        //checking cols
         for (let j = 0; j < 3; j++) {
             let x = gameboard.gameboardArray[0][j].dataset.value;
             for (let i = 0; i < 3; i++) {
-                if (gameboard.gameboardArray[i][j].dataset.value != x)
+                if (gameboard.gameboardArray[i][j].dataset.value !== x)
                     break;
-                if ((i == 2) && x != undefined) {
+                if ((i === 2) && x !== undefined) {
                     win = true;
-                    game.winnerTag = x;
+                    this.winnerTag = x;
                     break;
                 }
             }
         }
-        //проверка для диагоналей
-        if ((gameboard.gameboardArray[0][2].dataset.value == gameboard.gameboardArray[1][1].dataset.value) &&
-            (gameboard.gameboardArray[1][1].dataset.value == gameboard.gameboardArray[2][0].dataset.value) &&
-            (gameboard.gameboardArray[1][1].dataset.value) != undefined) {
+        //checking diagonals
+        if ((gameboard.gameboardArray[0][2].dataset.value === gameboard.gameboardArray[1][1].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value === gameboard.gameboardArray[2][0].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value) !== undefined) {
             win = true;
-            game.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
+            this.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
         }
         ;
-        if ((gameboard.gameboardArray[0][0].dataset.value == gameboard.gameboardArray[1][1].dataset.value) &&
-            (gameboard.gameboardArray[0][0].dataset.value == gameboard.gameboardArray[2][2].dataset.value) &&
-            (gameboard.gameboardArray[1][1].dataset.value) != undefined) {
+        if ((gameboard.gameboardArray[0][0].dataset.value === gameboard.gameboardArray[1][1].dataset.value) &&
+            (gameboard.gameboardArray[0][0].dataset.value === gameboard.gameboardArray[2][2].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value) !== undefined) {
             win = true;
-            game.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
+            this.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
         }
         ;
         return (win);

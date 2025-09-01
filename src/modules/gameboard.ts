@@ -12,7 +12,7 @@ interface Gameboard {
     showWinner: () => void;
 }
 
-let gameboard = {
+let gameboard: Gameboard = {
     gameboardArray: [],
 
     createArray: function(this: Gameboard): NodeListOf<HTMLElement> {

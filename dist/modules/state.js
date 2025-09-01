@@ -1,1 +1,3 @@
-export const state = { whoseTurn: undefined };
+export const state = {
+    whoseTurn: null
+};
