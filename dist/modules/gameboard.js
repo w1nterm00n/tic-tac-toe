@@ -8,33 +8,28 @@ let gameboard = {
         let cells = document.querySelectorAll('.cell');
         let cellArray = Array.from(cells);
         for (let i = 0; i < 3; i++) {
-            gameboard.gameboardArray.push(cellArray.slice(i * 3, (i + 1) * 3));
+            this.gameboardArray.push(cellArray.slice(i * 3, (i + 1) * 3));
         }
-        return cells; //cells это нодлист
+        return cells; //cells is a nodelist
     },
     tagging: function (whoseTurn, cell) {
-        //ищет индекс этой клетки в массиве gameboardArray
+        //searching for index of the cell in gameboardArray
         let rowIndex = this.gameboardArray.findIndex(row => row.includes(cell));
         let columnIndex = this.gameboardArray[rowIndex].indexOf(cell);
-        //нашёл индекс этой клетки в массиве gameboardArray
-        if (this.gameboardArray[rowIndex][columnIndex].value) {
+        //found index of the cell in gameboardArray
+        if (this.gameboardArray[rowIndex][columnIndex].dataset.value) {
             alert("its already clicked!");
         }
         else {
             cell.classList.add(whoseTurn === "X" ? "Xcell" : "Ocell");
-            this.gameboardArray[rowIndex][columnIndex].value = whoseTurn;
-            game.processOfGame(whoseTurn);
+            this.gameboardArray[rowIndex][columnIndex].dataset.value = whoseTurn;
+            game.processOfGame();
         }
         ;
     },
     showWhoseTurn: function () {
-        let whoseTurnName; //to-do: сделать дженериком с именами юзеров
-        if (players.player0.tag == state.whoseTurn) {
-            whoseTurnName = players.player0.name;
-        }
-        else {
-            whoseTurnName = players.playerX.name;
-        }
+        const whoseTurnName = (players.player0.tag === state.whoseTurn ? players.player0.name : players.playerX.name)
+            ?? "Unknown";
         let turn = document.querySelector('.turn');
         turn.style.opacity = "0";
         setTimeout(() => {
@@ -44,12 +39,13 @@ let gameboard = {
     },
     showWinner: function () {
         let winnerName;
-        if (players.player0.tag == game.winnerTag) {
+        if (players.player0.tag === game.winnerTag) {
             winnerName = players.player0.name;
         }
         else {
             winnerName = players.playerX.name;
         }
+        console.log("winner: ", winnerName);
         let congratsTable = document.querySelector('.congrats_table');
         congratsTable.style.cssText = 'display: flex;';
         let congrats = document.querySelector('.congrats');

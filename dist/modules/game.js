@@ -40,6 +40,7 @@ let game = {
     },
     processOfGame: function () {
         let isWin = this.isWining();
+        console.log("process of game: ", isWin);
         if (isWin) {
             gameboard.showWinner();
         }
@@ -58,9 +59,9 @@ let game = {
         let win = false;
         //проверка для строк
         for (let i = 0; i < 3; i++) {
-            let x = gameboard.gameboardArray[i][0].value;
+            let x = gameboard.gameboardArray[i][0].dataset.value;
             for (let j = 0; j < 3; j++) {
-                if (gameboard.gameboardArray[i][j].value != x)
+                if (gameboard.gameboardArray[i][j].dataset.value != x)
                     break;
                 if ((j == 2) && x != undefined) {
                     win = true;
@@ -71,9 +72,9 @@ let game = {
         }
         //проверка для столбцов
         for (let j = 0; j < 3; j++) {
-            let x = gameboard.gameboardArray[0][j].value;
+            let x = gameboard.gameboardArray[0][j].dataset.value;
             for (let i = 0; i < 3; i++) {
-                if (gameboard.gameboardArray[i][j].value != x)
+                if (gameboard.gameboardArray[i][j].dataset.value != x)
                     break;
                 if ((i == 2) && x != undefined) {
                     win = true;
@@ -83,18 +84,18 @@ let game = {
             }
         }
         //проверка для диагоналей
-        if ((gameboard.gameboardArray[0][2].value == gameboard.gameboardArray[1][1].value) &&
-            (gameboard.gameboardArray[1][1].value == gameboard.gameboardArray[2][0].value) &&
-            (gameboard.gameboardArray[1][1].value) != undefined) {
+        if ((gameboard.gameboardArray[0][2].dataset.value == gameboard.gameboardArray[1][1].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value == gameboard.gameboardArray[2][0].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value) != undefined) {
             win = true;
-            game.winnerTag = gameboard.gameboardArray[1][1].value;
+            game.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
         }
         ;
-        if ((gameboard.gameboardArray[0][0].value == gameboard.gameboardArray[1][1].value) &&
-            (gameboard.gameboardArray[0][0].value == gameboard.gameboardArray[2][2].value) &&
-            (gameboard.gameboardArray[1][1].value) != undefined) {
+        if ((gameboard.gameboardArray[0][0].dataset.value == gameboard.gameboardArray[1][1].dataset.value) &&
+            (gameboard.gameboardArray[0][0].dataset.value == gameboard.gameboardArray[2][2].dataset.value) &&
+            (gameboard.gameboardArray[1][1].dataset.value) != undefined) {
             win = true;
-            game.winnerTag = gameboard.gameboardArray[1][1].value;
+            game.winnerTag = gameboard.gameboardArray[1][1].dataset.value;
         }
         ;
         return (win);
