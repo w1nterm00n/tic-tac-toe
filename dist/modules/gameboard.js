@@ -28,7 +28,7 @@ let gameboard = {
         ;
     },
     showWhoseTurn: function () {
-        let whoseTurnName;
+        let whoseTurnName; //to-do: сделать дженериком с именами юзеров
         if (players.player0.tag == state.whoseTurn) {
             whoseTurnName = players.player0.name;
         }
@@ -36,10 +36,10 @@ let gameboard = {
             whoseTurnName = players.playerX.name;
         }
         let turn = document.querySelector('.turn');
-        turn.style.opacity = 0;
+        turn.style.opacity = "0";
         setTimeout(() => {
             turn.textContent = whoseTurnName + " turn!";
-            turn.style.opacity = 1;
+            turn.style.opacity = "1";
         }, 300);
     },
     showWinner: function () {

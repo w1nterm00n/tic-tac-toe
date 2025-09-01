@@ -44,7 +44,7 @@ let game = {
             gameboard.showWinner();
         }
         else {
-            if (state.whoseTurn === "X") {
+            if (state.whoseTurn === "X") { //to-do: сделать whoseTurn типом который принимает либо "X" либо "0"
                 state.whoseTurn = "0";
             }
             else {

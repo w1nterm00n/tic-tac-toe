@@ -38,16 +38,16 @@ let game = {
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
         //скрываем congrats table
-        let congratsTable = document.querySelector('.congrats_table');
+        let congratsTable = document.querySelector('.congrats_table') as HTMLElement;
         congratsTable.style.cssText = "display: none; "
     },
 
     processOfGame: function () {
-        let isWin = this.isWining();
+        let isWin: boolean = this.isWining();
         if (isWin) {
             gameboard.showWinner();
         } else {
-            if (state.whoseTurn === "X") {
+            if (state.whoseTurn === "X") { //to-do: сделать whoseTurn типом который принимает либо "X" либо "0"
                 state.whoseTurn = "0";
             } else {
                 state.whoseTurn = "X";

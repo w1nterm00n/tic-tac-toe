@@ -31,17 +31,17 @@ let gameboard = {
     },
 
     showWhoseTurn: function() { //отображаем чья очередь (имя)
-        let whoseTurnName;
+        let whoseTurnName;  //to-do: сделать дженериком с именами юзеров
         if (players.player0.tag == state.whoseTurn) {
             whoseTurnName = players.player0.name;
         } else {
             whoseTurnName = players.playerX.name;
         }
-        let turn = document.querySelector('.turn');
-        turn.style.opacity = 0;
+        let turn = document.querySelector('.turn') as HTMLElement;
+        turn.style.opacity = "0";
         setTimeout(() => {
             turn.textContent = whoseTurnName + " turn!";
-            turn.style.opacity = 1;
+            turn.style.opacity = "1";
           }, 300);
     },
 
@@ -52,7 +52,7 @@ let gameboard = {
         } else {
             winnerName = players.playerX.name;
         }
-        let congratsTable = document.querySelector('.congrats_table');
+        let congratsTable = document.querySelector('.congrats_table') as HTMLElement;
         congratsTable.style.cssText = 'display: flex;';
         let congrats = document.querySelector('.congrats');
         congrats.textContent =  winnerName + " won";
