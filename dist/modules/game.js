@@ -37,7 +37,7 @@ let game = {
         let cells = document.querySelectorAll('.cell');
         cells.forEach((cell) => {
             cell.textContent = "";
-            cell.dataset.value = "";
+            cell.removeAttribute("data-value");
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
         //hide congrats table

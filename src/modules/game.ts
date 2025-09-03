@@ -49,7 +49,7 @@ let game: Game = {
         let cells: NodeListOf<HTMLElement> = document.querySelectorAll('.cell');
         cells.forEach((cell) => { //cleaning the cells
             cell.textContent = "";
-            cell.dataset.value = "";
+            cell.removeAttribute("data-value");
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
         //hide congrats table
