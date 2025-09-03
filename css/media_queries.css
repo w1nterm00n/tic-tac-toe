@@ -242,6 +242,10 @@
   #enter_names_fields .playerX_wrapper input {
     margin-left: 0 !important;
   }
+  #enter_names_fields label input {
+    max-width: 80px !important;
+    top: 17px !important;
+  }
   .congrats_table .congrats {
     font-size: 24px !important;
   }
