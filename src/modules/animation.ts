@@ -1,12 +1,12 @@
-let leftInput = document.getElementById('playerX_name');
-let leftWrapper = document.querySelector('.playerX_wrapper');
-let rightInput = document.getElementById('player0_name');
-let rightWrapper = document.querySelector('.player0_wrapper');
-let startBtn = document.getElementById('start_btn');
+let leftInput = document.getElementById('playerX_name') as HTMLInputElement;
+let leftWrapper = document.querySelector('.playerX_wrapper') as HTMLElement;
+let rightInput = document.getElementById('player0_name') as HTMLInputElement;
+let rightWrapper = document.querySelector('.player0_wrapper') as HTMLElement;
+let startBtn = document.getElementById('start_btn') as HTMLButtonElement;
 
 let animation = {
-    inputAnimation() {
-        function syncRight() {
+    inputAnimation(): void {
+        function syncRight(): void {
             if ((leftInput.value.trim() !== "") 
                 && (rightInput.value.trim() !== "")) {
                 animation.animateStartBtn();
@@ -18,7 +18,7 @@ let animation = {
               rightWrapper.classList.remove("input-empty");
             }
         }
-        function syncLeft() {
+        function syncLeft(): void {
             if (leftInput.value.trim() === "") {
               leftWrapper.classList.add("input-empty");
               animation.setStartBtnDisabled();
@@ -32,19 +32,21 @@ let animation = {
         rightInput.addEventListener("input", syncRight);
     },
 
-    setStartBtnDisabled() {
+    setStartBtnDisabled(): void {
         startBtn.disabled = true;
         startBtn.classList.remove("animatedBtn");
     },
 
-    animateStartBtn(){
+    animateStartBtn(): void {
         startBtn.disabled = false;
         startBtn.classList.add("animatedBtn");
     },
-    removeStartBtnAnimation(){
+
+    removeStartBtnAnimation(): void {
         startBtn.classList.remove("animatedBtn");
     },
-    showConfetti(){
+
+    showConfetti(): void {
       const duration = 2000;
       const end = Date.now() + duration;
 

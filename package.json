@@ -1,5 +1,9 @@
 {
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "typescript": "^5.9.2"
+  },
+  "dependencies": {
+    "canvas-confetti": "^1.9.3"
   }
 }
