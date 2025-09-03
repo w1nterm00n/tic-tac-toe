@@ -275,32 +275,6 @@
 @media (max-width: 400px) {
     #enter_names_fields{
         gap: 0px !important; 
-        .XvsO{
-            font-size: 16px !important; 
-            gap: 1px !important; 
-            img{
-                width: 25px; 
-            }
-        }
-        label{
-            img{
-                width: 100px !important; 
-            }
-            input{
-                max-width: 60px !important; 
-                top: 14px !important; 
-            }
-            span{
-                font-size: 10px !important;  
-                left: 20px !important; 
-                top: 24% !important;
-                margin-top: 5px !important; 
-            }
-            .fp-l{
-                left: 10px !important; 
-            }
-        }
-
         .player0_wrapper{
             input{
                 margin-left: 0 !important; 
@@ -317,4 +291,37 @@
             font-size: 24px !important;
         }
     }
+}
+
+@media (max-width: 360px) {
+    #enter_names_fields{
+        gap: 0px !important; 
+        .XvsO{
+            font-size: 16px !important; 
+            gap: 1px !important; 
+            img{
+                width: 25px; 
+            }
+        }
+        label{
+            img{
+                width: 120px !important; 
+            }
+            input{
+                max-width: 80px !important; 
+                top: 15px !important; 
+            }
+            span{
+                font-size: 10px !important;  
+                left: 20px !important; 
+                top: 24% !important;
+                margin-top: 5px !important; 
+            }
+            .fp-l{
+                left: 10px !important; 
+            }
+        }
+
+    }
+
 }

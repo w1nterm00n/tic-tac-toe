@@ -236,6 +236,20 @@
   #enter_names_fields {
     gap: 0px !important;
   }
+  #enter_names_fields .player0_wrapper input {
+    margin-left: 0 !important;
+  }
+  #enter_names_fields .playerX_wrapper input {
+    margin-left: 0 !important;
+  }
+  .congrats_table .congrats {
+    font-size: 24px !important;
+  }
+}
+@media (max-width: 360px) {
+  #enter_names_fields {
+    gap: 0px !important;
+  }
   #enter_names_fields .XvsO {
     font-size: 16px !important;
     gap: 1px !important;
@@ -244,11 +258,11 @@
     width: 25px;
   }
   #enter_names_fields label img {
-    width: 100px !important;
+    width: 120px !important;
   }
   #enter_names_fields label input {
-    max-width: 60px !important;
-    top: 14px !important;
+    max-width: 80px !important;
+    top: 15px !important;
   }
   #enter_names_fields label span {
     font-size: 10px !important;
@@ -258,14 +272,5 @@
   }
   #enter_names_fields label .fp-l {
     left: 10px !important;
-  }
-  #enter_names_fields .player0_wrapper input {
-    margin-left: 0 !important;
-  }
-  #enter_names_fields .playerX_wrapper input {
-    margin-left: 0 !important;
-  }
-  .congrats_table .congrats {
-    font-size: 24px !important;
   }
 }/*# sourceMappingURL=media_queries.css.map */
