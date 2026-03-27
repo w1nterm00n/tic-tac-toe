@@ -50,10 +50,20 @@ let gameboard = {
         let congrats = document.querySelector('.congrats');
         congrats.textContent = winnerName + " won";
         animation.showConfetti();
+        this.bindRestart();
+    },
+    showDraw: function () {
+        let congratsTable = document.querySelector('.congrats_table');
+        congratsTable.style.cssText = 'display: flex;';
+        let congrats = document.querySelector('.congrats');
+        congrats.textContent = "Draw";
+        this.bindRestart();
+    },
+    bindRestart: function () {
         let restartButton = document.querySelector('#restart_btn');
-        restartButton.addEventListener('click', function () {
+        restartButton.onclick = function () {
             game.restart();
-        });
+        };
     }
 };
 export default gameboard;

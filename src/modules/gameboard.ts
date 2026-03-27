@@ -10,6 +10,8 @@ interface Gameboard {
     tagging: (this: Gameboard, whoseTurn: Tag, cell: HTMLElement) => void;
     showWhoseTurn: () => void;
     showWinner: () => void;
+    showDraw: () => void;
+    bindRestart: () => void;
 }
 
 let gameboard: Gameboard = {
@@ -64,11 +66,22 @@ let gameboard: Gameboard = {
         let congrats = document.querySelector('.congrats') as HTMLElement;
         congrats.textContent =  winnerName + " won";
         animation.showConfetti();
-        let restartButton = document.querySelector('#restart_btn') as HTMLElement;
+        this.bindRestart();
+    },
 
-        restartButton.addEventListener('click', function(){
+    showDraw: function(): void {
+        let congratsTable = document.querySelector('.congrats_table') as HTMLElement;
+        congratsTable.style.cssText = 'display: flex;';
+        let congrats = document.querySelector('.congrats') as HTMLElement;
+        congrats.textContent = "Draw";
+        this.bindRestart();
+    },
+
+    bindRestart: function(): void {
+        let restartButton = document.querySelector('#restart_btn') as HTMLElement;
+        restartButton.onclick = function() {
             game.restart();
-        }); 
+        };
     }
 
 };

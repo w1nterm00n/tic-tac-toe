@@ -1,3 +1,7 @@
+import type { Options } from "canvas-confetti";
+
+declare const confetti: (options?: Options) => Promise<null> | null;
+
 let leftInput = document.getElementById('playerX_name') as HTMLInputElement;
 let leftWrapper = document.querySelector('.playerX_wrapper') as HTMLElement;
 let rightInput = document.getElementById('player0_name') as HTMLInputElement;

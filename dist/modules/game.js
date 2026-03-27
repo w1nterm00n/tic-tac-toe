@@ -40,6 +40,9 @@ let game = {
             cell.removeAttribute("data-value");
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
+        this.winnerTag = undefined;
+        state.whoseTurn = "X";
+        gameboard.showWhoseTurn();
         //hide congrats table
         let congratsTable = document.querySelector('.congrats_table');
         congratsTable.style.cssText = "display: none; ";
@@ -48,6 +51,9 @@ let game = {
         let isWin = this.isWining();
         if (isWin) {
             gameboard.showWinner();
+        }
+        else if (this.isDraw()) {
+            gameboard.showDraw();
         }
         else {
             if (state.whoseTurn === "X") {
@@ -104,6 +110,10 @@ let game = {
         }
         ;
         return (win);
+    },
+    isDraw: function () {
+        let cells = document.querySelectorAll('.cell');
+        return Array.from(cells).every((cell) => cell.dataset.value !== undefined);
     },
 };
 export default game;

@@ -9,6 +9,7 @@ interface Game {
     restart: () => void;
     processOfGame: (this: Game) => void;
     isWining: (this: Game) => boolean;
+    isDraw: () => boolean;
 }
 
 
@@ -52,6 +53,9 @@ let game: Game = {
             cell.removeAttribute("data-value");
             cell.classList.remove("Xcell", "Ocell", "XcellHover", "OcellHover");
         });
+        this.winnerTag = undefined;
+        state.whoseTurn = "X";
+        gameboard.showWhoseTurn();
         //hide congrats table
         let congratsTable = document.querySelector('.congrats_table') as HTMLElement;
         congratsTable.style.cssText = "display: none; "
@@ -61,6 +65,8 @@ let game: Game = {
         let isWin: boolean = this.isWining();
         if (isWin) {
             gameboard.showWinner();
+        } else if (this.isDraw()) {
+            gameboard.showDraw();
         } else {
             if (state.whoseTurn === "X") {
                 state.whoseTurn = "0";
@@ -111,6 +117,11 @@ let game: Game = {
                 this.winnerTag = gameboard.gameboardArray[1][1].dataset.value as Tag;
             };
         return (win);
+    },
+
+    isDraw: function(): boolean {
+        let cells: NodeListOf<HTMLElement> = document.querySelectorAll('.cell');
+        return Array.from(cells).every((cell) => cell.dataset.value !== undefined);
     },
 };
 
